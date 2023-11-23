@@ -1,0 +1,95 @@
+service: archipelago-coffee-api
+# app and org for use with dashboard.serverless.com
+#app: your-app-name
+#org: your-org-name
+frameworkVersion: "3"
+
+package:
+  individually: true
+
+plugins:
+  - serverless-bundle
+  - serverless-offline
+  - serverless-dotenv-plugin
+
+useDotenv: true
+
+custom:
+  stage: ${opt:stage, self:provider.stage}
+  tableName: ${self:custom.stage}-product
+
+provider:
+  name: aws
+  runtime: nodejs16.x
+  stage: dev
+  region: ap-southeast-1
+  environment:
+    tableName: ${self:custom.tableName}
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:DescribeTable
+        - dynamodb:Query
+        - dynamodb:Scan
+        - dynamodb:GetItem
+        - dynamodb:PutItem
+        - dynamodb:UpdateItem
+        - dynamodb:DeleteItem
+      # Resource: "arn:aws:dynamodb:ap-southeast-1:*:*"
+      # Restrict IAM role permission to the specific table for the stage
+      Resource:
+        - "Fn::GetAtt": [ ProductTable, Arn]
+
+resources:
+  - ${file(resources/api-gateway-errors.yml)}
+  - ${file(resources/s3-bucket.yml)}
+  - ${file(resources/dynamodb-table.yml)}
+  - ${file(resources/cognito-user-pool.yml)}
+  - ${file(resources/cognito-identity-pool.yml)}
+  
+functions:
+  hello:
+    handler: handler.hello
+    events:
+      - http:
+          path: hello
+          method: get
+          cors: true
+  createProduct:
+    handler: service-product/createProduct.main
+    events:
+      - http:
+          path: product
+          method: post
+          cors: true
+          authorizer: aws_iam
+  listProduct:
+    handler: service-product/listProduct.main
+    events:
+      - http:
+          path: listproduct
+          method: post
+          cors: true
+  getProduct:
+    handler: service-product/getProduct.main
+    events:
+      - http:
+          path: product/{name}
+          method: get
+          cors: true
+  updateProduct:
+    handler: service-product/updateProduct.main
+    events:
+      - http:
+          path: product/{name}
+          method: put
+          cors: true
+          authorizer: aws_iam
+  deleteProduct:
+    handler: service-product/deleteProduct.main
+    events:
+      - http:
+          path: product/{name}
+          method: delete
+          cors: true
+          authorizer: aws_iam

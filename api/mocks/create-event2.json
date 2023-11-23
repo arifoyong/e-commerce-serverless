@@ -1,0 +1,8 @@
+{
+  "body": "{\"name\":\"Niugini Okapa\",\"pictures\":\"Niugini Okapa.jpg\",\"category\":\"Arabica\",\"package\":\"bean\",\"price\":15.00,\"profile\":\"Tropical Fruit Praline Toffee\"}",
+  "requestContext": {
+    "identity": {
+      "cognitoIdentityId": "USER-SUB-1234"
+    }
+  }
+}

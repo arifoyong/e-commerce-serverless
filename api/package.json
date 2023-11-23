@@ -1,0 +1,20 @@
+{
+  "name": "archipelago-coffee-api",
+  "version": "1.0.0",
+  "description": "Backend API for archipelago coffee",
+  "main": "handler.js",
+  "scripts": {
+    "test": "serverless-bundle test"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "aws-sdk": "^2.1495.0",
+    "serverless-bundle": "^6.0.0",
+    "serverless-dotenv-plugin": "^6.0.0",
+    "serverless-offline": "^13.2.1"
+  },
+  "dependencies": {
+    "uuid": "^9.0.1"
+  }
+}

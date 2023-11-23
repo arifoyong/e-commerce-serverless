@@ -1,0 +1,12 @@
+{
+  "body": "{\"name\":\"Binturong coffee\",\"pictures\":\"Binturong coffee.jpg\",\"category\":\"specialty\",\"package\":\"bean\",\"price\":61.00,\"profile\":\"Vanilla smooth\"}",
+  "pathParameters": {
+    "name": "yigerche coffee",
+    "category": "specialty"
+  },
+  "requestContext": {
+    "identity": {
+      "cognitoIdentityId": "USER-SUB-1234"
+    }
+  }
+}

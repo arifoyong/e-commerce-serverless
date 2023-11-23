@@ -1,0 +1,8 @@
+{
+  "body": "{\"name\":\"Kenya Peaberry\",\"pictures\":\"Kenya Peaberry.jpg\",\"category\":\"Arabica\",\"package\":\"bean\",\"price\":17.00,\"profile\":\"Citrus Pecan Toffee\"}",
+  "requestContext": {
+    "identity": {
+      "cognitoIdentityId": "USER-SUB-1234"
+    }
+  }
+}

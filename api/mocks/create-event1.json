@@ -1,0 +1,8 @@
+{
+  "body": "{\"name\":\"Colombia Popayan\",\"pictures\":\"Colombia Popayan.jpg\",\"category\":\"Arabica\",\"package\":\"bean\",\"price\":16.00,\"profile\":\"Blueberry Plum  Dark Chocolate\"}",
+  "requestContext": {
+    "identity": {
+      "cognitoIdentityId": "USER-SUB-1234"
+    }
+  }
+}

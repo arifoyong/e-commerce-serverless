@@ -1,0 +1,11 @@
+{
+  "pathParameters": {
+    "name": "p#cafe-femenino",
+    "category": "specialty"
+  },
+  "requestContext": {
+    "identity": {
+      "cognitoIdentityId": "USER-SUB-1234"
+    }
+  }
+}

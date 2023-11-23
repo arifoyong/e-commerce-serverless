@@ -1,0 +1,12 @@
+{
+  "body": "{\"limit\":2,\"lastEvaluatedKey\":{\"pk\":\"product\",\"sk\":\"p#ethiopia-sidama\"}}",
+  "pathParameters": {
+    "name": "luwak coffee",
+    "category": "specialty"
+  },
+  "requestContext": {
+    "identity": {
+      "cognitoIdentityId": "USER-SUB-1234"
+    }
+  }
+}
